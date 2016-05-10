@@ -22,9 +22,11 @@ and what you should write is the sayHi function that makes the code above work,
 
 */
 
-
-
-  //Code Here for first
+//my answer
+function first(array, cb) {
+  cb(array[0]);
+}
+//end of my answer
 
 
 var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
@@ -38,8 +40,11 @@ first(names, function(firstName){
 
 
 
-
-  //Code Here for last
+//myanswer
+function last(array, cb) {
+  cb(array[array.length - 1]);
+}
+//end of my answer//
 
 last(names, function(lastName){
   console.log('The last name in names is ' + lastName);
@@ -56,7 +61,11 @@ last(names, function(lastName){
 
 
 
-  //Code Here for multiply
+  //my answer
+  function multiply (num1, num2, cb) {
+    cb(num1 * num2);
+  }
+  //end of my answer
 
 multiply(4, 3, function(answer){
   console.log('The answer is ' + answer); //should console.log 12
@@ -72,7 +81,17 @@ multiply(4, 3, function(answer){
 
 
 
-  //Code Here for contains
+  //my answer
+function contains(array, str, cb) {
+  var isColt = false;
+  for (var i = 0; i < array.length; i++) {
+    if (array[i] === str) {
+     isColt = true;
+    }
+  }
+  cb(isColt);
+}
+  //end of my answer
 
 contains(names, 'Colt', function(result){
   if(result === true){
@@ -90,8 +109,20 @@ contains(names, 'Colt', function(result){
 
 
 
-
-    //Code Here for uniq
+// var names = ['Tyler', 'Cahlan', 'Ryan', 'Colt', 'Tyler', 'Blaine', 'Cahlan'];
+//sorted = Blaine, Cahlan, Cahlan, Colt, Ryan, Tyler, Tyler
+    //start of my answer
+    function uniq(array, cb) {
+      var newArray = array.sort();
+      var fixedArray = [];
+      for (var i = 0; i < newArray.length; i++) {
+        if (newArray[i] !== newArray[i + 1]) {
+          fixedArray.push(newArray[i]);
+        }
+      }
+      cb(fixedArray);
+    }
+    //end of my answer
 
 uniq(names, function(uniqArr){
   console.log('The new names array with all the duplicate items removed is ', uniqArr);
@@ -106,7 +137,13 @@ uniq(names, function(uniqArr){
 
 
 
-    //Code Here for each
+//my answer start
+function each(array, cb) {
+  for (var i = 0; i < array.length; i++) {
+    cb(array[i], i);
+  }
+}
+//my answer end
 
 each(names, function(item, indice){
   console.log('The item in the ' + indice + ' position is ' + item);
@@ -122,7 +159,17 @@ each(names, function(item, indice){
 
 
 
- //code here for getUserById
+ //start of my answer
+ function getUserById(arr, str, cb) {
+   var user = undefined;
+   for (var i = 0; i < arr.length; i++) {
+     if (arr[i].id === str) {
+       user = arr[i];
+     }
+   }
+   cb(user);
+ }
+ //end of my answer
 
 var users = [
   {
